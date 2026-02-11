@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BPL Admin - Update Match</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { background: #0d1b4c; color: white; font-family: sans-serif; text-align: center; padding: 20px; }
+        .box { background: white; color: #333; padding: 20px; border-radius: 10px; max-width: 450px; margin: auto; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        h2 { color: #ef008c; margin-bottom: 20px; }
+        label { display: block; text-align: left; font-weight: bold; margin-top: 10px; }
+        input, select { width: 100%; padding: 12px; margin: 8px 0; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; }
+        button { width: 100%; padding: 15px; background: #ef008c; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 18px; margin-top: 15px; }
+        button:hover { background: #d0007a; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>🏏 Update Match</h2>
+        
+        <div class="grid">
+            <div>
+                <label>Team A</label>
+                <select id="teamA">
+                    <option>BABULA 11</option><option>TAPAN 11</option><option>SUSANTA 11</option><option>BAPU 11</option><option>RAHUL 11</option>
+                </select>
+                <input type="number" id="runsA" placeholder="Runs">
+                <input type="number" step="0.1" id="oversA" placeholder="Overs (e.g. 6)">
+            </div>
+            <div>
+                <label>Team B</label>
+                <select id="teamB">
+                    <option>BAPU 11</option><option>RAHUL 11</option><option>SUSANTA 11</option><option>BABULA 11</option><option>TAPAN 11</option>
+                </select>
+                <input type="number" id="runsB" placeholder="Runs">
+                <input type="number" step="0.1" id="oversB" placeholder="Overs (e.g. 6)">
+            </div>
+        </div>
+
+        <label>Who Won?</label>
+        <select id="winner">
+            <option value="A">Team A Wins</option>
+            <option value="B">Team B Wins</option>
+        </select>
+
+        <button type="button" onclick="updateMatch()">SAVE RESULT</button>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

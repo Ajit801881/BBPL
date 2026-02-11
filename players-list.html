@@ -1,0 +1,139 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPL | Squad List</title>
+    <style>
+        body {
+            background: linear-gradient(rgba(13, 27, 76, 0.9), rgba(13, 27, 76, 0.9)), url("Babamani.jpeg") center/cover no-repeat fixed;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .player-box {
+            background: white;
+            width: 100%;
+            max-width: 400px;
+            padding: 25px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            animation: zoomIn 0.3s ease-out;
+            border: 4px solid #ffd700;
+        }
+
+        @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+        h3 { 
+            color: #19398a; 
+            font-size: 22px; 
+            margin-bottom: 20px; 
+            background: #f0f4ff;
+            padding: 12px;
+            border-radius: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        ul { list-style: none; padding: 0; margin: 0; text-align: left; max-height: 450px; overflow-y: auto; }
+
+        /* Custom Scrollbar */
+        ul::-webkit-scrollbar { width: 5px; }
+        ul::-webkit-scrollbar-thumb { background: #ffd700; border-radius: 10px; }
+
+        li {
+            padding: 14px 15px;
+            border-bottom: 1px solid #eee;
+            font-weight: 600;
+            color: #0d1b4c;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+        }
+        li::before { content: "🏏"; margin-right: 10px; font-size: 12px; }
+
+        /* Special style for Captain */
+        .captain-li { background: #fff9e6 !important; color: #b8860b !important; border-left: 5px solid #ffd700; }
+        .captain-li::before { content: "⭐"; }
+
+        li:nth-child(even) { background: #fcfcfc; }
+
+        .back-btn {
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: #19398a;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(25, 57, 138, 0.3);
+        }
+        .back-btn:hover { background: #ef008c; transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+
+    <div class="player-box">
+        <h3 id="teamHeading">SQUAD LIST</h3>
+        <ul id="playerList"></ul>
+        <a href="teams.html" class="back-btn">← Back to Teams</a>
+    </div>
+
+    <script>
+        // Sabhi players ke asli naam yahan hain
+        const allSquads = {
+            rahul: ["Rahul (Captain)", "Bhabani sankar das", "Romeo", "Gagan Biswal", "Babaji", "Manas Behera", "Ksihyamanda Mahal", "Bhagaban Das", "Rakesh Nayak", "Gouranga Jena", "Firoz Sahu", "Jitu", "Narayan Jena", "Satyabrata Khilar", "Rudra prakash Rout", "Malay Biswal"],
+            bapu: ["Bapu (Captain)", "Subhasish Rout", "Jagat jeeban Panda", "Jiban Das", "Sujit Jena", "Sahil", "Soumya Das", "Mona Ranjan Biswal(*)", "Sabyasachi Das", "Deepak Biswal", "Tapas Barik", "Toffic", "Ajay Biswal", "Harkat", "Omm Pati", "Biren Behera"],
+            susanta: ["Babula (Captain)", "Soumyajit Pradhan", "Jayanta Jena", "Sumit Biswal", "Ajit Nath", "Ruturaj Jena", "Juned", "Sanjay Sahu", "Rajendra Pakal", "Sanjay Jena", "Biswajit", "SUbhankar Rana", "Antaryami Biswal", "Biren Behera"],
+            tapan: ["Tapan (Captain)", "Abhinash Palei", "Sanjay Behera", "Mazbur", "Himanshu Biswal", "deelip Biswal", "Amit Biswal", "Prakash Puhan", "Lipu Rout", "Hemant Jena", "Dinesh Mallick", "Chandan Hansoda", "Sagar Biswal", "Prakash Mallick", "Jyotirmaya Sahu", "Akash Puhan"]
+        };
+
+        // Team key ko asli Team Name se map karne ke liye
+        const teamNameMap = {
+            rahul: "GARUDA 11",
+            bapu: "PITCH PIRATES",
+            susanta: "YOUNG STAR 11",
+            tapan: "ROYAL BHUTANU"
+        };
+
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const teamKey = params.get('team'); 
+
+            if (teamKey && allSquads[teamKey]) {
+                // Heading mein asli team name dikhayega
+                document.getElementById("teamHeading").innerText = teamNameMap[teamKey] || (teamKey.toUpperCase() + " 11");
+                
+                const list = document.getElementById("playerList");
+                
+                allSquads[teamKey].forEach((p) => {
+                    const li = document.createElement("li");
+                    li.innerText = p;
+                    
+                    // Agar naam mein (Captain) hai to star wala style apply karega
+                    if (p.includes("(Captain)")) {
+                        li.classList.add("captain-li");
+                    }
+                    list.appendChild(li);
+                });
+            } else {
+                document.getElementById("teamHeading").innerText = "Team Not Found!";
+            }
+        }
+    </script>
+</body>
+</html>

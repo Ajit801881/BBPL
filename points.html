@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BPL 2026 | Standings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+
+        body {
+            background: linear-gradient(rgba(13, 27, 76, 0.95), rgba(13, 27, 76, 0.95)),
+            url("Babamani.jpeg") center/cover no-repeat fixed;
+            color: white; min-height: 100vh;
+        }
+
+        .main-header {
+            background: #19398a; padding: 15px; position: sticky; top: 0; z-index: 1000;
+            border-bottom: 3px solid #ffd700; display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-weight: bold; font-size: 20px; color: #ffd700; letter-spacing: 1px; }
+        .main-nav a { color: white; text-decoration: none; font-weight: bold; font-size: 13px; margin-left: 15px; }
+        .main-nav a.active { color: #ffd700; border-bottom: 2px solid #ffd700; padding-bottom: 5px; }
+
+        .points-container { max-width: 900px; margin: 30px auto; padding: 0 15px; }
+        .section-header { text-align: center; margin-bottom: 25px; }
+        .section-header h2 { color: #ffd700; font-size: 28px; text-transform: uppercase; }
+
+        .table-card {
+            background: rgba(255, 255, 255, 0.07); backdrop-filter: blur(15px);
+            border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .table-responsive { width: 100%; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 650px; }
+
+        th {
+            background: rgba(239, 0, 140, 0.9); color: white; padding: 18px 10px;
+            font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        td { padding: 16px 10px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-weight: bold; font-size: 14px; }
+        .team-name-cell { text-align: left; padding-left: 20px; color: #ffd700; }
+        
+        /* Form Circles */
+        .form-dot { display: inline-block; width: 22px; height: 22px; line-height: 22px; border-radius: 50%; font-size: 10px; margin: 0 2px; color: white; }
+        .win { background: #00cc00; }
+        .loss { background: #ff3333; }
+
+        footer { text-align: center; padding: 40px; opacity: 0.5; font-size: 12px; }
+
+        @media (max-width: 600px) {
+            .logo { font-size: 16px; }
+            .main-nav a { font-size: 10px; margin-left: 8px; }
+            th, td { padding: 10px 5px; font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="logo">🏏 BPL 2026</div>
+    <nav class="main-nav">
+        <a href="index.html">HOME</a>
+        <a href="matches.html">MATCHES</a>
+        <a href="teams.html">TEAMS</a>
+         <a href="points.html" class="active">POINTS</a>
+        <a href="gallery.html">GALLERY</a>
+    </nav>
+</header>
+
+<div class="points-container">
+    <div class="section-header">
+        <h2>Official Standings</h2>
+        <p>Babamani Premier League | Season 2026</p>
+    </div>
+
+    <div class="table-card">
+        <div class="table-responsive">
+            <table id="pointsTable">
+                <thead>
+                    <tr>
+                        <th>RANK</th>
+                        <th style="text-align:left; padding-left:20px;">TEAM</th>
+                        <th>M</th>
+                        <th>W</th>
+                        <th>L</th>
+                        <th>NRR</th>
+                        <th>PTS</th>
+                        <th>FORM</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<footer><p>© 2026 BABAMANI PREMIER LEAGUE | SORO</p></footer>
+<script src="index.js"></script>
+</body>
+</html>

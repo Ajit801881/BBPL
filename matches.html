@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BPL 2026 | Schedule & Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        /* === MODERN STYLING === */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        
+        body { 
+            background: linear-gradient(rgba(13, 27, 76, 0.95), rgba(13, 27, 76, 0.95)), 
+            url("Babamani.jpeg") center/cover no-repeat fixed; 
+            color: white; 
+        }
+
+        /* Navigation */
+        .header { 
+            background: #19398a; padding: 15px; position: sticky; top: 0; z-index: 1000;
+            border-bottom: 3px solid #ffd700; display: flex; justify-content: space-between; align-items: center; 
+        }
+        .logo { font-weight: bold; font-size: 20px; color: #ffd700; }
+        nav a { color: white; text-decoration: none; margin-left: 15px; font-weight: bold; font-size: 13px; }
+        nav a.active { color: #ffd700; border-bottom: 2px solid #ffd700; padding-bottom: 5px; }
+
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+
+        /* IPL STYLE TABS */
+        .tabs-container { display: flex; justify-content: center; background: white; border-radius: 50px; padding: 5px; margin-bottom: 25px; }
+        .tab-btn { 
+            flex: 1; border: none; padding: 10px; border-radius: 50px; cursor: pointer; 
+            font-weight: bold; font-size: 14px; background: none; color: #19398a; transition: 0.3s;
+        }
+        .tab-btn.active { background: #19398a; color: white; }
+
+        /* Sections Toggle */
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+
+        /* COUNTDOWN HERO CARD */
+        .countdown-container {
+            background: linear-gradient(135deg, #ef008c 0%, #743481 100%);
+            border-radius: 20px; padding: 25px; text-align: center;
+            border: 2px solid #ffd700; margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+        .countdown-container h2 { font-size: 12px; letter-spacing: 2px; margin-bottom: 15px; text-transform: uppercase; }
+        .timer-grid { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; }
+        .t-box { background: rgba(0,0,0,0.3); padding: 8px; border-radius: 8px; min-width: 55px; }
+        .t-box span { display: block; font-size: 20px; font-weight: 900; color: #ffd700; }
+        .t-box label { font-size: 9px; text-transform: uppercase; opacity: 0.8; }
+        .next-match-info { font-weight: bold; font-size: 15px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 10px; }
+
+        /* MATCH RESULT CARD (IPL STYLE) */
+        .result-card { background: white; border-radius: 15px; margin-bottom: 15px; overflow: hidden; color: #0d1b4c; border-left: 8px solid #28a745; }
+        .res-head { background: #f1f1f1; padding: 10px; font-size: 11px; display: flex; justify-content: space-between; font-weight: bold; }
+        .res-body { display: flex; align-items: center; justify-content: space-between; padding: 15px; text-align: center; }
+        .res-team img { width: 45px; height: 45px; object-fit: contain; }
+        .res-team p { font-size: 12px; font-weight: bold; margin-top: 5px; }
+        .res-score { font-size: 18px; font-weight: 900; color: #19398a; }
+        .res-footer { background: #fff3f8; padding: 8px; font-size: 12px; color: #ef008c; font-weight: bold; text-align: center; border-top: 1px solid #eee; }
+
+        /* MATCH SCHEDULE CARDS */
+        .day-header { color: #ffd700; margin: 25px 0 10px; font-size: 18px; text-align: left; border-left: 4px solid #ef008c; padding-left: 10px; }
+        .match-card {
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
+            border-radius: 12px; padding: 15px; margin-bottom: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .m-time { font-size: 12px; font-weight: bold; color: #ffd700; width: 70px; }
+        .m-teams { flex: 1; text-align: center; font-size: 14px; font-weight: bold; letter-spacing: 0.5px; }
+        .vs-text { color: #ef008c; margin: 0 8px; font-style: italic; font-size: 12px; }
+        
+        .playoff-card { background: rgba(255, 215, 0, 0.15); border: 1px solid #ffd700; }
+        .playoff-label { background: #ffd700; color: #000; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: bold; margin-bottom: 5px; display: inline-block; }
+
+        @media (max-width: 600px) {
+            nav a { margin-left: 8px; font-size: 11px; }
+            .m-teams { font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">🏏 BPL 2026</div>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a class="active" href="matches.html">MATCHES</a>
+            <a href="teams.html">TEAMS</a>
+            <a href="points.html">POINTS</a>
+            <a href="gallery.html">GALLERY</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <div class="tabs-container">
+            <button class="tab-btn" onclick="openTab('results-sec')">RESULTS</button>
+            <button class="tab-btn active" onclick="openTab('upcoming-sec')">UPCOMING</button>
+        </div>
+
+        <div id="results-sec" class="content-section">
+            <h2 style="text-align: center; color: white; font-size: 22px; margin-bottom: 20px;">MATCH RESULTS</h2>
+            
+            <!-- <div class="result-card">
+                <div class="res-head"><span>MATCH 1 - JANHIA GROUND</span> <span>COMPLETED</span></div>
+                <div class="res-body">
+                    <div class="res-team"><img src="logo/Royal.jpeg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1101/1101680.png'"><p>ROYAL BHUTANU</p><div class="res-score">85/4</div><div class="over">(8.0 ov) </div></div>
+                    <div style="font-weight: bold; color: #743481;">VS</div>
+                    <div class="res-team"><img src="logo/garudaaa.jpeg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1101/1101680.png'"><p>GARUDA 11</p><div class="res-score">86/6</div><div class="over">(8.0 ov)</div></div>
+                </div>
+                <div class="res-footer">🏆 GARUDA 11 WON BY 4 WICKETS</div>
+            </div>  -->  
+
+            
+
+            <p style="text-align: center; font-size: 12px; opacity: 0.7;">More results will be updated soon...</p>
+        </div>
+
+        <div id="upcoming-sec" class="content-section active">
+            <div class="countdown-container">
+                <h2>Tournament Starts In</h2>
+                <div class="timer-grid">
+                    <div class="t-box"><span id="days">00</span><label>Days</label></div>
+                    <div class="t-box"><span id="hours">00</span><label>Hrs</label></div>
+                    <div class="t-box"><span id="mins">00</span><label>Mins</label></div>
+                    <div class="t-box"><span id="secs">00</span><label>Secs</label></div>
+                </div>
+                <div class="next-match-info">
+                    ROYAL BHUTANU <span style="color:#ffd700">VS</span> GARUDA 11
+                    <p style="font-size: 11px; opacity: 0.8; margin-top: 4px;">16 FEB | 10:00 AM | Janhia Ground</p>
+                </div>
+            </div>
+
+            <h2 style="text-align: center; color: white; font-size: 22px;">MATCH SCHEDULE</h2>
+
+            <h3 class="day-header">📅 Monday, 16 Feb</h3>
+            <div class="match-card"><div class="m-time">10:00 AM</div><div class="m-teams">ROYAL BHUTANU <span class="vs-text">VS</span> GARUDA 11</div></div>
+            <div class="match-card"><div class="m-time">11:30 AM</div><div class="m-teams">YOUNG STAR 11 <span class="vs-text">VS</span>PITCH PIRATES</div></div>
+            <div class="match-card"><div class="m-time">02:00 PM</div><div class="m-teams">ROYAL BHUTANU<span class="vs-text">VS</span> YOUNG STAR 11</div></div>
+            <div class="match-card"><div class="m-time">04:10 PM</div><div class="m-teams">PITCH PIRATES <span class="vs-text">VS</span> GARUDA 11</div></div>
+
+            <h3 class="day-header">📅 Tuesday, 17 Feb</h3>
+            <div class="match-card"><div class="m-time">10:00 AM</div><div class="m-teams">YOUNG STAR 11 <span class="vs-text">VS</span>ROYAL BHUTANU</div></div>
+            <div class="match-card"><div class="m-time">11:30 AM</div><div class="m-teams">PITCH PIRATES<span class="vs-text">VS</span> GARUDA 11</div></div>
+            <div class="match-card"><div class="m-time">02:00 PM</div><div class="m-teams">YOUNG STAR 11 <span class="vs-text">VS</span> GARUDA 11</div></div>
+            <div class="match-card"><div class="m-time">04:10 PM</div><div class="m-teams">ROYAL BHUTANU <span class="vs-text">VS</span>PITCH PIRATES</div></div>
+
+            <h3 class="day-header">📅 Wednesday, 18 Feb</h3>
+            <div class="match-card"><div class="m-time">10:00 AM</div><div class="m-teams">GARUDA 11 <span class="vs-text">VS</span> YOUNG STAR 11</div></div>
+            <div class="match-card"><div class="m-time">11:30 AM</div><div class="m-teams">ROYAL BHUTANU<span class="vs-text">VS</span> PITCH PIRATES</div></div>
+            <div class="match-card"><div class="m-time">02:00 PM</div><div class="m-teams">GARUDA 11 <span class="vs-text">VS</span> ROYAL BHUTANU</div></div>
+            <div class="match-card"><div class="m-time">04:10 PM</div><div class="m-teams">YOUNG STAR 11 <span class="vs-text">VS</span> PITCH PIRATES</div></div>
+
+
+            
+            <h3 class="day-header" style="color:#ffd700">🏆 Playoffs & Finals</h3>
+            <div class="match-card playoff-card">
+                <div class="m-time">11:30 AM</div>
+                <div class="m-teams">
+                    <span class="playoff-label">QUALIFIER</span><br>
+                    TEAM 2 <span class="vs-text">VS</span> TEAM 3
+                </div>
+            </div>
+            <div class="match-card playoff-card" style="background: linear-gradient(rgba(255,215,0,0.2), rgba(255,215,0,0.1));">
+                <div class="m-time">02:00 PM</div>
+                <div class="m-teams">
+                    <span class="playoff-label" style="background:#ef008c; color:white;">GRAND FINAL</span><br>
+                    TEAM 1 <span class="vs-text">VS</span> WINNER Q1
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // TAB SWITCHING LOGIC
+        function openTab(tabId) {
+            // Sections chhupao
+            document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+            // Buttons normal karo
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            // Selected section aur button dikhao
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // COUNTDOWN TIMER LOGIC
+        const targetDate = new Date("Feb 16, 2026 10:00:00").getTime();
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById("mins").innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById("secs").innerHTML = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector(".countdown-container h2").innerHTML = "TOURNAMENT IS LIVE!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

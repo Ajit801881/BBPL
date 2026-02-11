@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BPL Teams - 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background: linear-gradient(rgba(13, 27, 76, 0.9), rgba(13, 27, 76, 0.9)), url("Babamani.jpeg") center/cover no-repeat fixed; color: white; text-align: center; }
+        
+        .header { background: #19398a; padding: 15px; border-bottom: 3px solid #ffd700; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-weight: 900; font-size: 20px; color: white; }
+        nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; font-size: 13px; }
+        nav a.active { color: #ffd700; border-bottom: 2px solid #ffd700; }
+
+        .page { padding: 40px 20px; }
+        .title { color: #ffd700; margin-bottom: 10px; font-size: 28px; text-transform: uppercase; letter-spacing: 2px; }
+        .sub-title { opacity: 0.8; margin-bottom: 30px; font-size: 14px; }
+
+        .team-list { list-style: none; max-width: 450px; margin: 0 auto 50px; }
+        .team-list li { 
+            background: rgba(255, 255, 255, 0.1); 
+            backdrop-filter: blur(10px);
+            color: white; 
+            margin-bottom: 15px; 
+            padding: 20px; 
+            border-radius: 15px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            border: 1px solid rgba(255,255,255,0.1);
+            border-left: 6px solid #ef008c;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .team-list li:hover { transform: scale(1.03); background: rgba(255, 255, 255, 0.2); border-color: #ffd700; }
+        .view-btn { font-size: 10px; background: #ffd700; color: #000; padding: 4px 8px; border-radius: 4px; }
+
+        /* GALLERY SECTION */
+        .gallery-section { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .gallery-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+            gap: 15px; margin-top: 20px; 
+        }
+        .gallery-item { 
+            height: 150px; border-radius: 12px; overflow: hidden; 
+            border: 2px solid rgba(255,255,255,0.2); 
+            background: #000;
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; opacity: 0.8; }
+        .gallery-item:hover img { transform: scale(1.1); opacity: 1; }
+
+        footer { padding: 40px; opacity: 0.7; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">🏏 BPL 2026</div>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="matches.html">MATCHES</a>
+            <a class="active" href="teams.html">TEAMS</a>
+            <a href="points.html">POINTS</a>
+            <a href="gallery.html">GALLERY</a>
+        </nav>
+    </header>
+
+    <section class="page">
+        <h2 class="title">Official Teams</h2>
+        <p class="sub-title">Select a team to view their full squad</p>
+        
+        <ul class="team-list">
+            <li onclick="location.href='players-list.html?team=rahul'">GARUDA 11 <span class="view-btn">SQUAD</span></li>
+            <li onclick="location.href='players-list.html?team=bapu'">PITCH PIRATES <span class="view-btn">SQUAD</span></li>
+            <li onclick="location.href='players-list.html?team=susanta'">YOUNG STAR 11 <span class="view-btn">SQUAD</span></li>
+            <li onclick="location.href='players-list.html?team=tapan'">ROYAL BHUTANU <span class="view-btn">SQUAD</span></li>
+        </ul>
+
+        <h2 class="title" style="margin-top: 40px; font-size: 22px;">📸 Tournament Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="Babamani.jpeg"></div>
+            <div class="gallery-item"><img src="saamar.jpeg"></div>
+            <div class="gallery-item" style="display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.05);">
+                <span style="font-size:10px; opacity:0.5;">More Coming Soon</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>© 2026 Babamani Premier League</footer>
+</body>
+</html>

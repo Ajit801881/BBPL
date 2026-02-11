@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BPL 2026 | GALLERY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { 
+            background: linear-gradient(rgba(13, 27, 76, 0.95), rgba(13, 27, 76, 0.95)), 
+            url("Babamani.jpeg") center/cover no-repeat fixed; 
+            color: white; min-height: 100vh;
+        }
+
+        .header { 
+            background: #19398a; padding: 15px; position: sticky; top: 0; z-index: 1000;
+            border-bottom: 3px solid #ffd700; display: flex; justify-content: space-between; align-items: center; 
+        }
+        .logo { font-weight: bold; font-size: 20px; color: #ffd700; }
+        nav a { color: white; text-decoration: none; margin-left: 12px; font-weight: bold; font-size: 12px; transition: 0.3s; }
+        nav a.active { color: #ffd700; border-bottom: 2px solid #ffd700; padding-bottom: 5px; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .gallery-title { color: #ffd700; margin: 30px 0; font-size: 26px; text-align: center; text-transform: uppercase; letter-spacing: 2px; }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+
+        .gallery-item { 
+            position: relative; height: 250px; border-radius: 15px; overflow: hidden; 
+            border: 2px solid rgba(255,255,255,0.2); background: #000; box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
+
+        .download-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 15px; display: flex; justify-content: center; opacity: 0; transition: 0.3s;
+        }
+
+        .gallery-item:hover .download-overlay { opacity: 1; }
+
+        .dl-btn {
+            background: #ffd700; color: #000; text-decoration: none; padding: 8px 15px;
+            border-radius: 20px; font-size: 12px; font-weight: bold; display: flex; align-items: center; gap: 5px;
+        }
+
+        footer { padding: 40px; opacity: 0.7; font-size: 12px; text-align: center; }
+
+        @media (max-width: 600px) {
+            .gallery-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .gallery-item { height: 180px; }
+            .download-overlay { opacity: 1; padding: 8px; }
+            .dl-btn { font-size: 10px; padding: 5px 10px; }
+            nav a { margin-left: 8px; font-size: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">🏏 BPL 2026</div>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="matches.html">MATCHES</a>
+            <a href="teams.html">TEAMS</a>
+            <a href="points.html">POINTS</a>
+            <a class="active" href="gallery.html">GALLERY</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="gallery-title">📸 BPL MOMENTS</h1>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="gallery/photo1.jpg" alt="Match 1">
+                <div class="download-overlay">
+                    <a href="gallery/photo1.jpg" download class="dl-btn">📥 Download</a>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/photo2.jpg" alt="Match 2">
+                <div class="download-overlay">
+                    <a href="gallery/photo2.jpg" download class="dl-btn">📥 Download</a>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Babamani.jpeg" alt="Sample">
+                <div class="download-overlay">
+                    <a href="Babamani.jpeg" download class="dl-btn">📥 Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>© 2026 Babamani Premier League</footer>
+</body>
+</html>
